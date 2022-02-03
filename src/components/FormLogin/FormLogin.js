@@ -37,7 +37,6 @@ const FormLogin = ({
         placeholder="Write your password"
         name="save"
         className="form__input"
-        required
       />
     </>
   );

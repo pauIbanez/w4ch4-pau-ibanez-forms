@@ -51,7 +51,7 @@ const FormPersonalData = ({
         }}
         placeholder="Write your name"
         name="name"
-        className="form__input"
+        className="form__input col-5"
       />
       <input
         type="text"
@@ -61,9 +61,9 @@ const FormPersonalData = ({
         }}
         placeholder="Write your last name"
         name="lastName"
-        className="form__input"
+        className="form__input col-5 offset-2"
       />
-      <div className="form__age-container">
+      <div className="form__age-container col-5">
         <input
           type="date"
           value={dateOfBirth}
@@ -72,7 +72,7 @@ const FormPersonalData = ({
           }}
           placeholder="Write your date of birth"
           name="dateOfBirth"
-          className="form__input form__input--date"
+          className="form__input form__input--date "
         />
         {dateOfBirth && (
           <span className="form__age">{getYears() + " y/o"}</span>
@@ -86,7 +86,7 @@ const FormPersonalData = ({
         }}
         placeholder="Write your email"
         name="email"
-        className="form__input"
+        className="form__input col-5 offset-2"
       />
     </>
   );
