@@ -15,16 +15,6 @@ const FormComponent = () => {
       <h2 className="form__title"> hello </h2>
       <section className="form__inputs">
         <FormPersonalData formData={formData} onInputChange={onChange} />
-        {/* <input
-          type="text"
-          value={formData.username}
-          onChange={(event) => {
-            onChange(event.target.name, event.target.value);
-          }}
-          placeholder="Username"
-          name="username"
-          className="form__input"
-        /> */}
       </section>
       <section className="form__controlls">
         <button className="form__button"> Previous </button>
