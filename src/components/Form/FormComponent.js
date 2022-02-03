@@ -51,7 +51,7 @@ const FormComponent = () => {
 
   return (
     <form className="form" onSubmit={onSubmit}>
-      <section className="form__inputs">
+      <section className="form__inputs row">
         {formStage === 1 && (
           <FormPersonalData
             formData={formData}
@@ -75,10 +75,10 @@ const FormComponent = () => {
           />
         )}
       </section>
-      <section className="form__controlls">
+      <section className="form__controlls row">
         {formStage !== 1 && (
           <button
-            className="form__button"
+            className="form__button col-6"
             onClick={(event) => {
               event.preventDefault();
               setFormGood(false);
@@ -90,7 +90,7 @@ const FormComponent = () => {
         )}
         {formStage !== 3 && (
           <button
-            className="form__button"
+            className="form__button col-6"
             onClick={(event) => {
               event.preventDefault();
               setFormGood(false);
@@ -102,7 +102,10 @@ const FormComponent = () => {
           </button>
         )}
         {formStage === 3 && (
-          <button className="form__button form__button--submit" type="submit">
+          <button
+            className="form__button form__button--submit col-6"
+            type="submit"
+          >
             Submit
           </button>
         )}

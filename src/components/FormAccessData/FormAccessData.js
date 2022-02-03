@@ -51,7 +51,7 @@ const FormAccesData = ({
         }}
         placeholder="Write a username"
         name="username"
-        className="form__input"
+        className="form__input col-12"
       />
       <input
         type="password"
@@ -62,9 +62,9 @@ const FormAccesData = ({
         }}
         placeholder="Write a password"
         name={passwordFieldName}
-        className="form__input"
+        className="form__input col-5"
       />
-      <div className="form__repeat-password">
+      <div className="form__repeat-password col-5 offset-2 row">
         <input
           type="password"
           value={repeatPassword}
@@ -73,13 +73,13 @@ const FormAccesData = ({
           }}
           placeholder="Write the password again"
           name={repeatPasswordFieldName}
-          className="form__input"
+          className="form__input col"
         />
         {repeatPassword ? (
           repeatedPasswordCheck.current ? (
-            <FontAwesomeIcon icon={faCheck} size="lg" className="icon__check" />
+            <FontAwesomeIcon icon={faCheck} className="icon__check" />
           ) : (
-            <FontAwesomeIcon icon={faTimes} size="lg" className="icon__check" />
+            <FontAwesomeIcon icon={faTimes} className="icon__check" />
           )
         ) : (
           ""

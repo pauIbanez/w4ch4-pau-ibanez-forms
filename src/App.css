@@ -1,3 +1,8 @@
 .container {
   text-align: center;
 }
+
+.icon__check {
+  flex: 0.1;
+  align-self: center;
+}
