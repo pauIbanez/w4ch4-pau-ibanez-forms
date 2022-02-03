@@ -70,6 +70,8 @@ const FormComponent = () => {
           <FormLogin
             userInput={userInputData}
             onUserInputChange={onUserInputChange}
+            onInputChange={onChange}
+            save={formData.save}
           />
         )}
       </section>

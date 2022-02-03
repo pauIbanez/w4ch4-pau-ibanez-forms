@@ -1,6 +1,8 @@
 const FormLogin = ({
   userInput: { username, password },
   onUserInputChange,
+  onInputChange,
+  save,
 }) => {
   return (
     <>
@@ -24,6 +26,16 @@ const FormLogin = ({
         }}
         placeholder="Write your password"
         name="password"
+        className="form__input"
+        required
+      />
+      <input
+        type="checkbox"
+        onChange={(event) => {
+          onInputChange(event.target.name, event.target.checked);
+        }}
+        placeholder="Write your password"
+        name="save"
         className="form__input"
         required
       />

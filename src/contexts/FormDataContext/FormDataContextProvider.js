@@ -11,6 +11,7 @@ const FormDataContextProvider = ({ children }) => {
     email: "",
     username: "",
     password: "",
+    save: false,
   });
   const [formStage, setFormStage] = useState(1);
   const [loggedIn, setLoggedIn] = useState(false);
