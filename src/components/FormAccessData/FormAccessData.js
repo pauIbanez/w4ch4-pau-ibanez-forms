@@ -1,12 +1,19 @@
 import { useRef, useState } from "react";
 
-const FormAccesData = ({ formData: { username, password }, onInputChange }) => {
+const FormAccesData = ({
+  formData: { username, password },
+  onInputChange,
+  validate,
+}) => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const repeatedPasswordCheck = useRef(false);
 
+  const passwordFieldName = "password";
+  const repeatPasswordFieldName = "repeatPassword";
+
   const validatePassword = (ref, inputedPassword) => {
     switch (ref) {
-      case "password":
+      case passwordFieldName:
         if (inputedPassword === repeatPassword) {
           repeatedPasswordCheck.current = true;
         } else {
@@ -14,7 +21,7 @@ const FormAccesData = ({ formData: { username, password }, onInputChange }) => {
         }
         break;
 
-      case "repeatPassword":
+      case repeatPasswordFieldName:
         if (inputedPassword === password) {
           repeatedPasswordCheck.current = true;
         } else {
@@ -47,7 +54,7 @@ const FormAccesData = ({ formData: { username, password }, onInputChange }) => {
           validatePassword(event.target.name, event.target.value);
         }}
         placeholder="Write a password"
-        name="password"
+        name={passwordFieldName}
         className="form__input"
       />
       <div className="form__repeat-password">
@@ -58,7 +65,7 @@ const FormAccesData = ({ formData: { username, password }, onInputChange }) => {
             validatePassword(event.target.name, event.target.value);
           }}
           placeholder="Write the password again"
-          name="repeatPassword"
+          name={repeatPasswordFieldName}
           className="form__input"
         />
         {repeatPassword ? (repeatedPasswordCheck.current ? "yes" : "no") : ""}
