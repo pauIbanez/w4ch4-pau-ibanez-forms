@@ -15,46 +15,6 @@ const FormComponent = () => {
       <section className="form__inputs">
         <input
           type="text"
-          value={formData.name}
-          onChange={(event) => {
-            onChange(event.target.name, event.target.value);
-          }}
-          placeholder="Write your name"
-          name="name"
-          className="form__input"
-        />
-        <input
-          type="text"
-          value={formData.lastName}
-          onChange={(event) => {
-            onChange(event.target.name, event.target.value);
-          }}
-          placeholder="Write your last name"
-          name="lastName"
-          className="form__input"
-        />
-        <input
-          type="date"
-          value={formData.dateOfBirth}
-          onChange={(event) => {
-            onChange(event.target.name, event.target.value);
-          }}
-          placeholder="Write your date of birth"
-          name="dateOfBirth"
-          className="form__input form__input--date"
-        />
-        <input
-          type="email"
-          value={formData.email}
-          onChange={(event) => {
-            onChange(event.target.name, event.target.value);
-          }}
-          placeholder="Write your email"
-          name="email"
-          className="form__input"
-        />
-        <input
-          type="text"
           value={formData.username}
           onChange={(event) => {
             onChange(event.target.name, event.target.value);
