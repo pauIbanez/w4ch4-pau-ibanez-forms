@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import FormDataContext from "../../contexts/FormDataContext/FormDataContext";
+import FormPersonalData from "../FormPersonalData/FormPersonalData";
 
 const FormComponent = () => {
   const { userData, onInputChange } = useContext(FormDataContext);
@@ -13,7 +14,8 @@ const FormComponent = () => {
     <form className="form">
       <h2 className="form__title"> hello </h2>
       <section className="form__inputs">
-        <input
+        <FormPersonalData formData={formData} onInputChange={onChange} />
+        {/* <input
           type="text"
           value={formData.username}
           onChange={(event) => {
@@ -22,7 +24,7 @@ const FormComponent = () => {
           placeholder="Username"
           name="username"
           className="form__input"
-        />
+        /> */}
       </section>
       <section className="form__controlls">
         <button className="form__button"> Previous </button>
