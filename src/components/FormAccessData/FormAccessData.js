@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 const FormAccesData = ({
   formData: { username, password },
   onInputChange,
-  validate,
+  formStageStatus,
 }) => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const repeatedPasswordCheck = useRef(false);
@@ -16,16 +16,20 @@ const FormAccesData = ({
       case passwordFieldName:
         if (inputedPassword === repeatPassword) {
           repeatedPasswordCheck.current = true;
+          formStageStatus(true);
         } else {
           repeatedPasswordCheck.current = false;
+          formStageStatus(false);
         }
         break;
 
       case repeatPasswordFieldName:
         if (inputedPassword === password) {
           repeatedPasswordCheck.current = true;
+          formStageStatus(true);
         } else {
           repeatedPasswordCheck.current = false;
+          formStageStatus(false);
         }
         setRepeatPassword(inputedPassword);
         break;

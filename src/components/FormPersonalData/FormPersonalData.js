@@ -1,14 +1,37 @@
 const FormPersonalData = ({
   formData: { name, lastName, dateOfBirth, email },
   onInputChange,
+  formStageStatus,
 }) => {
+  const data = { name, lastName, dateOfBirth, email };
+
+  const validateForm = () => {
+    if (
+      data.name &&
+      data.lastName &&
+      data.dateOfBirth &&
+      data.email &&
+      data.email.includes("@")
+    ) {
+      formStageStatus(true);
+    } else {
+      formStageStatus(false);
+    }
+  };
+
+  const onChange = (field, val) => {
+    data[field] = val;
+    validateForm();
+    onInputChange(field, val);
+  };
+
   return (
     <>
       <input
         type="text"
         value={name}
         onChange={(event) => {
-          onInputChange(event.target.name, event.target.value);
+          onChange(event.target.name, event.target.value);
         }}
         placeholder="Write your name"
         name="name"
@@ -18,7 +41,7 @@ const FormPersonalData = ({
         type="text"
         value={lastName}
         onChange={(event) => {
-          onInputChange(event.target.name, event.target.value);
+          onChange(event.target.name, event.target.value);
         }}
         placeholder="Write your last name"
         name="lastName"
@@ -29,7 +52,7 @@ const FormPersonalData = ({
           type="date"
           value={dateOfBirth}
           onChange={(event) => {
-            onInputChange(event.target.name, event.target.value);
+            onChange(event.target.name, event.target.value);
           }}
           placeholder="Write your date of birth"
           name="dateOfBirth"
@@ -41,7 +64,7 @@ const FormPersonalData = ({
         type="email"
         value={email}
         onChange={(event) => {
-          onInputChange(event.target.name, event.target.value);
+          onChange(event.target.name, event.target.value);
         }}
         placeholder="Write your email"
         name="email"
