@@ -13,6 +13,7 @@ const FormLogin = ({
         placeholder="Write your username"
         name="username"
         className="form__input"
+        required
       />
       <input
         type="password"
@@ -23,6 +24,7 @@ const FormLogin = ({
         placeholder="Write your password"
         name="password"
         className="form__input"
+        required
       />
     </>
   );

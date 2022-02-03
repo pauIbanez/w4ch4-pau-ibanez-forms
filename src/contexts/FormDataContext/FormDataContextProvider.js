@@ -12,7 +12,15 @@ const FormDataContextProvider = ({ children }) => {
     username: "",
     password: "",
   });
-  // const [formState, setFormState] = useState(0);
+  const [formStage, setFormStage] = useState(1);
+
+  const updateFormStage = (mode) => {
+    if (mode) {
+      setFormStage(formStage + 1);
+    } else {
+      setFormStage(formStage - 1);
+    }
+  };
 
   const onInputChange = (inputRef, value) => {
     setUserData({ ...userData, [inputRef]: value });
@@ -20,6 +28,8 @@ const FormDataContextProvider = ({ children }) => {
 
   contextData.userData = userData;
   contextData.onInputChange = onInputChange;
+  contextData.formStage = formStage;
+  contextData.updateFormStage = updateFormStage;
 
   return (
     <FormDataContext.Provider value={contextData}>
