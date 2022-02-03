@@ -25,8 +25,24 @@ const FormPersonalData = ({
     onInputChange(field, val);
   };
 
+  const getYears = () => {
+    const today = new Date();
+    const dateOfBirthasDate = new Date(data.dateOfBirth);
+
+    let age = today.getFullYear() - dateOfBirthasDate.getFullYear();
+    const monthDifference = today.getMonth() - dateOfBirthasDate.getMonth();
+    if (
+      monthDifference < 0 ||
+      (monthDifference === 0 && today.getDate() < dateOfBirthasDate.getDate())
+    ) {
+      age--;
+    }
+    return age;
+  };
+
   return (
     <>
+      <h2 className="form__title"> Personal Data </h2>
       <input
         type="text"
         value={name}
@@ -58,7 +74,9 @@ const FormPersonalData = ({
           name="dateOfBirth"
           className="form__input form__input--date"
         />
-        {dateOfBirth && <span className="form__age">aaaaaaaa</span>}
+        {dateOfBirth && (
+          <span className="form__age">{getYears() + " y/o"}</span>
+        )}
       </div>
       <input
         type="email"

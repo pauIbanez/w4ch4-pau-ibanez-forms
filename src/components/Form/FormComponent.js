@@ -51,7 +51,6 @@ const FormComponent = () => {
 
   return (
     <form className="form" onSubmit={onSubmit}>
-      <h2 className="form__title"> hello </h2>
       <section className="form__inputs">
         {formStage === 1 && (
           <FormPersonalData
@@ -71,6 +70,8 @@ const FormComponent = () => {
           <FormLogin
             userInput={userInputData}
             onUserInputChange={onUserInputChange}
+            onInputChange={onChange}
+            save={formData.save}
           />
         )}
       </section>

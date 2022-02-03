@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const FormAccesData = ({
   formData: { username, password },
@@ -40,6 +42,7 @@ const FormAccesData = ({
 
   return (
     <>
+      <h2 className="form__title"> Acces Data </h2>
       <input
         type="text"
         value={username}
@@ -72,7 +75,15 @@ const FormAccesData = ({
           name={repeatPasswordFieldName}
           className="form__input"
         />
-        {repeatPassword ? (repeatedPasswordCheck.current ? "yes" : "no") : ""}
+        {repeatPassword ? (
+          repeatedPasswordCheck.current ? (
+            <FontAwesomeIcon icon={faCheck} size="lg" className="icon__check" />
+          ) : (
+            <FontAwesomeIcon icon={faTimes} size="lg" className="icon__check" />
+          )
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
