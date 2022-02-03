@@ -4,28 +4,65 @@ import FormDataContext from "../../contexts/FormDataContext/FormDataContext";
 const FormComponent = () => {
   const { userData, onInputChange } = useContext(FormDataContext);
 
+  const formData = { ...userData };
+  const onChange = (field, val) => {
+    formData[field] = val;
+    onInputChange(field, val);
+  };
   return (
     <form className="form">
       <h2 className="form__title"> hello </h2>
       <section className="form__inputs">
         <input
           type="text"
-          value={userData.name}
+          value={formData.name}
           onChange={(event) => {
-            onInputChange(event.target.name, event.target.value);
+            onChange(event.target.name, event.target.value);
           }}
           placeholder="Write your name"
           name="name"
           className="form__input"
         />
-        <input type="text" name="lname" className="form__input" />
+        <input
+          type="text"
+          value={formData.lastName}
+          onChange={(event) => {
+            onChange(event.target.name, event.target.value);
+          }}
+          placeholder="Write your last name"
+          name="lastName"
+          className="form__input"
+        />
         <input
           type="date"
-          name="date-of-birth"
+          value={formData.dateOfBirth}
+          onChange={(event) => {
+            onChange(event.target.name, event.target.value);
+          }}
+          placeholder="Write your date of birth"
+          name="dateOfBirth"
           className="form__input form__input--date"
         />
-        <input type="email" name="email" className="form__input" />
-        <input type="text" name="username" className="form__input" />
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(event) => {
+            onChange(event.target.name, event.target.value);
+          }}
+          placeholder="Write your email"
+          name="email"
+          className="form__input"
+        />
+        <input
+          type="text"
+          value={formData.username}
+          onChange={(event) => {
+            onChange(event.target.name, event.target.value);
+          }}
+          placeholder="Username"
+          name="username"
+          className="form__input"
+        />
       </section>
       <section className="form__controlls">
         <button className="form__button"> Previous </button>

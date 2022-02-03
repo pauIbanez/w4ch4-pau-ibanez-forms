@@ -4,11 +4,18 @@ import FormDataContext from "./FormDataContext";
 const FormDataContextProvider = ({ children }) => {
   const contextData = {};
 
-  const [userData, setUserData] = useState({ name: "" });
+  const [userData, setUserData] = useState({
+    name: "",
+    lastName: "",
+    dateOfBirth: "",
+    email: "",
+    username: "",
+    password: "",
+  });
   // const [formState, setFormState] = useState(0);
 
   const onInputChange = (inputRef, value) => {
-    setUserData({ [inputRef]: value });
+    setUserData({ ...userData, [inputRef]: value });
   };
 
   contextData.userData = userData;
