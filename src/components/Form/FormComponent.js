@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import FormDataContext from "../../contexts/FormDataContext/FormDataContext";
+import FormAccesData from "../FormAccessData/FormAccessData";
 import FormPersonalData from "../FormPersonalData/FormPersonalData";
 
 const FormComponent = () => {
@@ -15,6 +16,7 @@ const FormComponent = () => {
       <h2 className="form__title"> hello </h2>
       <section className="form__inputs">
         <FormPersonalData formData={formData} onInputChange={onChange} />
+        <FormAccesData formData={formData} onInputChange={onChange} />
       </section>
       <section className="form__controlls">
         <button className="form__button"> Previous </button>
