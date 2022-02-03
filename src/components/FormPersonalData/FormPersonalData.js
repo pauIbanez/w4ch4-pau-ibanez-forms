@@ -3,17 +3,24 @@ const FormPersonalData = ({
   onInputChange,
   formStageStatus,
 }) => {
+  const data = { name, lastName, dateOfBirth, email };
+
   const validateForm = () => {
-    if (name && lastName && dateOfBirth) {
-      if (email.includes("@")) {
-        formStageStatus(true);
-      }
+    if (
+      data.name &&
+      data.lastName &&
+      data.dateOfBirth &&
+      data.email &&
+      data.email.includes("@")
+    ) {
+      formStageStatus(true);
     } else {
       formStageStatus(false);
     }
   };
 
   const onChange = (field, val) => {
+    data[field] = val;
     validateForm();
     onInputChange(field, val);
   };
