@@ -13,6 +13,7 @@ const FormDataContextProvider = ({ children }) => {
     password: "",
   });
   const [formStage, setFormStage] = useState(1);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const updateFormStage = (mode) => {
     if (mode) {
@@ -20,6 +21,9 @@ const FormDataContextProvider = ({ children }) => {
     } else {
       setFormStage(formStage - 1);
     }
+  };
+  const setFormApproved = () => {
+    setLoggedIn(true);
   };
 
   const onInputChange = (inputRef, value) => {
@@ -30,6 +34,8 @@ const FormDataContextProvider = ({ children }) => {
   contextData.onInputChange = onInputChange;
   contextData.formStage = formStage;
   contextData.updateFormStage = updateFormStage;
+  contextData.setFormApproved = setFormApproved;
+  contextData.loggedIn = loggedIn;
 
   return (
     <FormDataContext.Provider value={contextData}>
