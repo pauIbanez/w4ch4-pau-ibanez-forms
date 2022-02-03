@@ -42,6 +42,7 @@ const FormAccesData = ({
 
   return (
     <>
+      <h2 className="form__title"> Acces Data </h2>
       <input
         type="text"
         value={username}

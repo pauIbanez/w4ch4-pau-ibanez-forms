@@ -4,6 +4,7 @@ const FormLogin = ({
 }) => {
   return (
     <>
+      <h2 className="form__title"> Login </h2>
       <input
         type="text"
         value={username}

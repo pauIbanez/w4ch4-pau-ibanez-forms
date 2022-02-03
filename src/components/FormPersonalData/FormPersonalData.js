@@ -42,6 +42,7 @@ const FormPersonalData = ({
 
   return (
     <>
+      <h2 className="form__title"> Personal Data </h2>
       <input
         type="text"
         value={name}
